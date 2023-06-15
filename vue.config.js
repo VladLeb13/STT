@@ -7,5 +7,11 @@ module.exports = defineConfig({
           additionalData: '@import "@/disigns/index.scss";'
         }
       }
-    }
+    },
+  chainWebpack(config) {
+
+    // Don't allow importing .vue files without the extension, as
+		// it's necessary for some Vetur autocompletions.
+		config.resolve.extensions.delete(".vue")
+  }
 })
